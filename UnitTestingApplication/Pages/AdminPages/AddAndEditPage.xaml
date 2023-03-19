@@ -1,0 +1,77 @@
+﻿<Page x:Class="UnitTestingApplication.Pages.AdminPages.AddAndEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UnitTestingApplication.Pages.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" 
+      d:DesignWidth="800"
+      Title="AddAndEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" 
+                   Grid.Column="0" 
+                   Text="Название товара" />
+        <TextBox Grid.Row="0" 
+                 Grid.Column="1"
+                 Text="{Binding GoodsName}" 
+                 Width="300" />
+
+        <TextBlock Grid.Row="1" 
+                   Grid.Column="0" 
+                   Text="Цена товара" />
+        <TextBox Grid.Row="1" 
+                 Grid.Column="1"
+                 Text="{Binding GoodsPrice}" 
+                 Width="300" />
+
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="0" 
+                   Text="Количество товара" />
+        <TextBox Grid.Row="2" 
+                 Grid.Column="1"
+                 Text="{Binding GoodsCount}" 
+                 Width="300" />
+
+        <TextBlock Grid.Row="3" 
+                   Grid.Column="0" 
+                   Text="Изображение товара" />
+        <Grid Grid.Row="3"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0"
+                     x:Name="FilePath"
+                     Text="{Binding GoodsImage}" 
+                     Width="250" />
+            <Button Grid.Column="1"
+                    x:Name="SelectImageBtn"
+                    Content="Выбрать"
+                    Click="SelectImageBtn_Click" />
+
+        </Grid>
+
+        <Button Grid.Row="4"
+                Grid.ColumnSpan="2"
+                x:Name="BtnSave"
+                Content="Сохранить данные"
+                Width="250" 
+                Click="BtnSave_Click" />
+    </Grid>
+</Page>
